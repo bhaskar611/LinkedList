@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class MainClass 
 {
-    public static void main( String[] args )
+	public static void main( String[] args )
     {
         System.out.println( "Welcome to Linked List Operations" );
         LinkedList linkedList = new LinkedList();
@@ -18,8 +18,8 @@ public class MainClass
 		sc.nextLine();
         linkedList.addNodeAtIndex(30,val);
         linkedList.printList();
-        linkedList.pop();
-        System.out.print("After deleting ");
+        linkedList.popLast();
+        System.out.print("After deleting from last ");
         linkedList.printList();
     }
 }

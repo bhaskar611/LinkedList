@@ -13,7 +13,6 @@ public class LinkedList{
 		head = null;
 	}
 	
-	
 	public int getSize() {
 		return size;
 	}
@@ -24,6 +23,7 @@ public class LinkedList{
 	}
 
 	
+	
 	public Node getHead() {
 		return head;
 	}
@@ -33,6 +33,7 @@ public class LinkedList{
 		this.head = head;
 	}
 
+	
 	static class Node<T>{
 		private T data;
 		private Node next;
@@ -42,6 +43,7 @@ public class LinkedList{
 			return data;
 		}
 
+		
 		public void setData(T data) {
 			this.data = data;
 		}
@@ -63,7 +65,7 @@ public class LinkedList{
 		}
 	}
 	
-	
+// add node at first	
 	public <T> void addNodeAtFirst(T data) {
 		Node n = new Node(data);
 		n.next = head;
@@ -85,7 +87,7 @@ public class LinkedList{
 		}
 		size++;
 	}
-	
+// add node at index	
 	public <T> void addNodeAtIndex(T data,int index) {
 		Node n = new Node(data);
 		Node t = head;
@@ -105,7 +107,9 @@ public class LinkedList{
 		size++;
 	}
 	
-	
+
+	//  prints the linked list
+	 
 	public <T> void printList() {
 		Node t = head;
 		System.out.println("The list is as follows");
@@ -117,6 +121,8 @@ public class LinkedList{
 		System.out.print(" -> null\n");
 	}
 	
+
+	//returns the first element of the linked list
 	
 	public <T> T returnFirst() {
 		if(head == null) {
@@ -126,7 +132,7 @@ public class LinkedList{
 		return (T)head.data;
 	}
 	
-
+	// deletes the first nodeof the list
 	
 	public <T> void pop() {
 		if(head==null) {
@@ -134,6 +140,25 @@ public class LinkedList{
 		}
 		else {
 			head = head.next;
+			size--;
+		}
+	}
+	
+	public <T> void popLast() {
+		if(head==null) {
+			System.out.println("The list is empty, no elements to remove");
+		}
+		else if(size == 1) {
+			head = null;
+			size--;
+		}
+		else {
+			Node t = head, prev = null;
+			while(t.next != null) {
+				prev = t;
+				t = t.next;
+			}
+			prev.next = null;
 			size--;
 		}
 	}
