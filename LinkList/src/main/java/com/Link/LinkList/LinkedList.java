@@ -33,7 +33,6 @@ public class LinkedList{
 		this.head = head;
 	}
 
-	
 	static class Node<T>{
 		private T data;
 		private Node next;
@@ -43,7 +42,6 @@ public class LinkedList{
 			return data;
 		}
 
-		
 		public void setData(T data) {
 			this.data = data;
 		}
@@ -88,18 +86,14 @@ public class LinkedList{
 		size++;
 	}
 	
-	public <T> void addNodeAtIndex(T data) {
+	public <T> void addNodeAtIndex(T data,int index) {
 		Node n = new Node(data);
 		Node t = head;
-		System.out.println("Enter the index in [0," + (size) +"] at which you want to add element");
-		Scanner sc = new Scanner(System.in);
-		int val = sc .nextInt();
-		sc.nextLine();
-		if(val == 0) {
+		if(index == 0) {
 			addNodeAtFirst(data);
 			return;
 		}
-		for(int i=0; i < val-1  && t!=null; i++)
+		for(int i=0; i < index-1  && t!=null; i++)
 			t = t.next;
 		if(t == null)
 		{
@@ -114,6 +108,7 @@ public class LinkedList{
 	
 	public <T> void printList() {
 		Node t = head;
+		System.out.println("The list is as follows");
 		System.out.print("HEAD");
 		while(t!=null) {
 			System.out.print(" -> " + t.data);
@@ -129,5 +124,17 @@ public class LinkedList{
 			return null;
 		}
 		return (T)head.data;
+	}
+	
+
+	
+	public <T> void pop() {
+		if(head==null) {
+			System.out.println("The list is empty, no elements to remove");
+		}
+		else {
+			head = head.next;
+			size--;
+		}
 	}
 }
